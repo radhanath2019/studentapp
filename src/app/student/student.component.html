@@ -1,0 +1,31 @@
+<div class="studentapp">
+<p> Welcome to student Details</p>
+<hr>
+<button type="button" (click)="addStudent()">Add Student</button> |
+<input type="button" value="Delete all Students" (click)="deleteAllStudents()">  |
+  <input type="button" value="Update Student" (click)="updateStudent()">  |
+<hr>
+<div class="studentapp">
+  
+  <input type="number" value="" placeholder="rollnumber"  [(ngModel)]=student.rollnumber><br><br/>
+  <input type="date" value="" placeholder="birthdate"  [(ngModel)]=student.birthdate><br><br/>
+  <input type="text" value="" placeholder="enter firstname" [(ngModel)]=student.firstName><br><br/>
+  <input type="text" value="" placeholder="enter lastname" [(ngModel)]=student.lastName><br><br/>
+  <input type="text" value="" placeholder="parentname" [(ngModel)]=student.parentName><br><br/>
+  <input type="text" value="" placeholder="enter parentphone" [(ngModel)]=student.parentPhone><br><br/>
+  <input type="text" value="" placeholder="enter address" [(ngModel)]=student.address><br><br/>
+
+  
+</div>
+  
+  <div class="studentapp">
+    <div *ngFor="let s of students">
+      
+        {{s.rollnumber}} | {{s.birthdate}} | {{s.firstName}} | {{s.lastName}} |{{s.parentName}} | {{s.parentPhone}} |{{s.address}}
+        <input type="button" (click)="deleteStudent(s.rollnumber)" value="Delete student">
+        <input type="button" (click)="selectStudent(s)" value="Select student">
+      </div>
+    </div>
+  </div>  
+
+
