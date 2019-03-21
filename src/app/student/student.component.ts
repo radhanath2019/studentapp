@@ -31,13 +31,22 @@ export class StudentComponent implements OnInit {
      address:'',
   }
   }
+  getStudent(){
+    var studentList=[];
+    if(localStorage.getItem('students') !=null){
+      studentList=JSON.parse(localStorage.getItem('students'));
+    }
+    return studentList;
+  }
     addStudent(){
-      if(this.student.rollnumber==0){
+      if(this.student.rollnumber!=0){
       this.student.id=Math.round(Math.random()*10000000);
     }
- this.students.push(this.student);
-  this.resetStudent();
-  
+    this.students.push(this.student);
+    localStorage.setItem('students',JSON.stringify(this.student));
+      this.resetStudent();
+    
+  console.log( this.students)
     }
   updateStudent(){
     var updated=false;
@@ -48,16 +57,21 @@ export class StudentComponent implements OnInit {
         this.students[i]=this.student;
         break;
       }
+      localStorage.setItem('students',JSON.stringify('student'));
+
     }
     if(!updated){
      this.students.push(this.student);
   }
      this.resetStudent();
-    
+  localStorage.setItem('students',JSON.stringify('student'));
+
    }
   
   deleteAllStudents(){
     this.students=[];
+   // localStorage.setItem('students',JSON.stringify('student'));
+
   }
   deleteStudent(rollnumber){
     var list=[];
@@ -68,12 +82,14 @@ export class StudentComponent implements OnInit {
         
     }
     this.students=list;
+  //  localStorage.setItem('students',JSON.stringify('student'));
+
   }
   selectStudent(student){
     this.student=student;
   }
     
-       }
+  }
        
        
 

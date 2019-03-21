@@ -1,7 +1,6 @@
 <div class="studentapp">
 <p> Welcome to student Details</p>
 <hr>
-<button type="button" (click)="addStudent()">Add Student</button> |
 <input type="button" value="Delete all Students" (click)="deleteAllStudents()">  |
   <input type="button" value="Update Student" (click)="updateStudent()">  |
 <hr>
@@ -14,10 +13,9 @@
   <input type="text" value="" placeholder="parentname" [(ngModel)]=student.parentName><br><br/>
   <input type="text" value="" placeholder="enter parentphone" [(ngModel)]=student.parentPhone><br><br/>
   <input type="text" value="" placeholder="enter address" [(ngModel)]=student.address><br><br/>
-
-  
+  <button type="button" (click)="addStudent()">Add Student</button> 
 </div>
-  
+  <hr>
   <div class="studentapp">
     <div *ngFor="let s of students">
       
